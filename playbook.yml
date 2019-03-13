@@ -1,58 +1,58 @@
 ---
-- hosts: backend
-  remote_user: ubuntu
-  become: yes
-  become_method: sudo
-  vars:
-    first_packages:
-    - python-minimal
-    - aptitude
-    system_packages:
-    - git
-    - mcrypt
-    - apache2
-    - libapache2-mod-php7.0
-    - sendmail
-    - php7.0
-    - php-cli
-    - php-fpm
-    - php-intl
-    - php-json
-    - php-mcrypt
-    - php-db
-    - php-mail-mime
-    - php-mdb2
-    - php-pear
-    - php-xml
-    - php-xml-parser
-    - php-mbstring
-    - php-curl
-    - php-pgsql
-    - php7.0-soap
-    - php7.0-gd
-    - php7.0-curl
-    - php7.0-pgsql
-    - php7.0-mbstring
-    - php7.0-xml
-    - php7.0-mysql
-    - postgresql-9.5
-    - postgresql-client-9.5
-    - python-psycopg2
-    - default-jre
-    - nodejs
-    - drush
-    - npm
-    - unzip
-    apache2_modules:
-    - rewrite
-    - ssl
-    - php7.0
-    
-pre_tasks:
-    - name: Install required first packages.
-        apt: pkg={{ item }} update_cache=yes state=latest
-        with_items: "{{ first_packages }"
-        
-    - name: Install required system packages.
-        apt: pkg={{ item }} update_cache=yes state=latest
-        with_items: "{{ system_packages }}"
+-   hosts: backend
+    remote_user: ubuntu
+    become: yes
+    become_method: sudo
+    vars:
+      first_packages:
+          - python-minimal
+          - aptitude
+      system_packages:
+          - git
+          - mcrypt
+          - apache2
+          - libapache2-mod-php7.0
+          - sendmail
+          - php7.0
+          - php-cli
+          - php-fpm
+          - php-intl
+          - php-json
+          - php-mcrypt
+          - php-db
+          - php-mail-mime
+          - php-mdb2
+          - php-pear
+          - php-xml
+          - php-xml-parser
+          - php-mbstring
+          - php-curl
+          - php-pgsql
+          - php7.0-soap
+          - php7.0-gd
+          - php7.0-curl
+          - php7.0-pgsql
+          - php7.0-mbstring
+          - php7.0-xml
+          - php7.0-mysql
+          - postgresql-9.5
+          - postgresql-client-9.5
+          - python-psycopg2
+          - default-jre
+          - nodejs
+          - drush
+          - npm
+          - unzip
+      apache2_modules:
+          - rewrite
+          - ssl
+          - php7.0
+      
+      pre_tasks:
+          -   name: Install required first packages.
+              apt: pkg={{ item }} update_cache=yes state=latest
+              with_items: "{{ first_packages }"
+          
+          -   name: Install required system packages.
+              apt: pkg={{ item }} update_cache=yes state=latest
+              with_items: "{{ system_packages }}" 
