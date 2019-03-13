@@ -26,3 +26,6 @@
             -   name: Install required system packages.
                 apt: pkg={{ item }} update_cache=yes state=latest
                 with_items: "{{ system_packages }}" 
+    
+    roles:
+    - { role: cloudwatch-agent }
