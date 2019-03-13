@@ -16,7 +16,7 @@
             -   file: /var/log/apache2/error.log
                 group_name: "http"
                 stream_name: "error"
-            awslogs_loglevel: info  
+        awslogs_loglevel: info  
         first_packages:
             - python-minimal
             - aptitude
