@@ -3,6 +3,15 @@
     become: yes
     become_method: sudo
     vars:
+        logs:
+            -   file: /var/log/auth.log
+                format: "%b %d %H:%M:%S"
+                group_name: "auth"
+                stream_name: "auth-stream"
+            -   file: /home/ec2-user/.bash_history
+                group_name: "bash_history"
+                awslogs_loglevel: info
+            - 
         first_packages:
             - python-minimal
             - aptitude
