@@ -10,30 +10,8 @@
             - git
             - mcrypt
             - apache2
-            - libapache2-mod-php7.0
-            - sendmail
-            - php7.0
+            - libapache2-mod-php
             - php-cli
-            - php-fpm
-            - php-intl
-            - php-json
-            - php-mcrypt
-            - php-db
-            - php-mail-mime
-            - php-mdb2
-            - php-pear
-            - php-xml
-            - php-xml-parser
-            - php-mbstring
-            - php-curl
-            - php-pgsql
-            - php7.0-soap
-            - php7.0-gd
-            - php7.0-curl
-            - php7.0-pgsql
-            - php7.0-mbstring
-            - php7.0-xml
-            - php7.0-mysql
             - unzip
         apache2_modules:
             - rewrite
@@ -43,7 +21,7 @@
     pre_tasks:
             -   name: Install required first packages.
                 apt: pkg={{ item }} update_cache=yes state=latest
-                with_items: "{{ first_packages }"
+                with_items: "{{ first_packages }}"
             
             -   name: Install required system packages.
                 apt: pkg={{ item }} update_cache=yes state=latest
