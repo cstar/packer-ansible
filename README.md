@@ -12,3 +12,10 @@ To get started, create some files, play with the terminal,
 or visit https://docs.aws.amazon.com/console/cloud9/ for our documentation.
 
 Happy coding!
+
+
+aws ec2 run-instances --image-id ami-0432f953b2f4b2cdd \
+    --instance-type a1.medium --key-name fenwick \
+    --security-group-ids sg-0db204212259fa981 \
+    --iam-instance-profile Arn=arn:aws:iam::626387663432:instance-profile/AWSCloudWatchAgent \
+    --subnet-id subnet-3f880c59 --count 1 
