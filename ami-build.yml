@@ -10,8 +10,13 @@
       "ami_name": "eric sample packer {{timestamp}}"
     }
   ],
-
   "provisioners": [
+    { "type": "shell",
+      "inline": [
+        "sudo apt-get update",
+        "sudo apt-get install -y python"
+      ]
+    },
     {
       "type": "ansible",
       "playbook_file": "./playbook.yml"

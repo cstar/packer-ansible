@@ -1,6 +1,5 @@
 ---
--   hosts: backend
-    remote_user: ubuntu
+-   hosts: all
     become: yes
     become_method: sudo
     vars:
