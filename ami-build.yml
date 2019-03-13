@@ -3,7 +3,7 @@
     {
       "type": "amazon-ebs",
       "region": "eu-west-1",
-      "source_ami": "ami-047d41821c231284a",
+      "source_ami": "ami-04f22baa70ee02594",
       "instance_type": "a1.4xlarge",
       "ssh_username": "ubuntu",
       "subnet_id": "subnet-3f880c59",

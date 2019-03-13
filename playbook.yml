@@ -8,10 +8,15 @@
                 format: "%b %d %H:%M:%S"
                 group_name: "auth"
                 stream_name: "auth-stream"
-            -   file: /home/ec2-user/.bash_history
+            -   file: /home/ubuntu/.bash_history
                 group_name: "bash_history"
-                awslogs_loglevel: info
-            - 
+            -   file: /var/log/apache2/access.log
+                group_name: "http"
+                stream_name: "access"
+             -  file: /var/log/apache2/error.log
+                group_name: "http"
+                stream_name: "error"
+            awslogs_loglevel: info  
         first_packages:
             - python-minimal
             - aptitude
@@ -28,13 +33,13 @@
             - php7.0
       
     pre_tasks:
-            -   name: Install required first packages.
-                apt: pkg={{ item }} update_cache=yes state=latest
-                with_items: "{{ first_packages }}"
+        -   name: Install required first packages.
+            apt: pkg={{ item }} update_cache=yes state=latest
+            with_items: "{{ first_packages }}"
             
-            -   name: Install required system packages.
-                apt: pkg={{ item }} update_cache=yes state=latest
-                with_items: "{{ system_packages }}" 
-    
+        -   name: Install required system packages.
+            apt: pkg={{ item }} update_cache=yes state=latest
+            with_items: "{{ system_packages }}" 
+
     roles:
-    - { role: cloudwatch-agent }
+        - { role: cloudwatch-agent }
