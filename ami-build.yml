@@ -7,7 +7,10 @@
       "instance_type": "a1.4xlarge",
       "ssh_username": "ubuntu",
       "subnet_id": "subnet-3f880c59",
-      "ami_name": "eric sample packer {{timestamp}}"
+      "ami_name": "eric sample packer {{timestamp}}",
+      "tags": {
+        "role": "webserver"
+      }
     }
   ],
   "provisioners": [
