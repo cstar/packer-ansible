@@ -1,0 +1,23 @@
+{
+  "builders": [
+    {
+      "type": "googlecompute",
+      "project_id": "erics-messy-project",
+      "source_image": "ubuntu-1804-bionic-v20190212a",
+      "ssh_username": "packer",
+      "zone": "us-central1-a"
+    }
+  ],
+  "provisioners": [
+    { "type": "shell",
+      "inline": [
+        "sudo apt-get update",
+        "sudo apt-get install -y python"
+      ]
+    },
+    {
+      "type": "ansible",
+      "playbook_file": "./playbook.yml"
+    }
+  ]
+}
